@@ -1,0 +1,17 @@
+#app {
+    font-size: 16px;
+    height: 100vh;
+    overflow: hidden;
+    background: #261c33;
+    margin: 0;
+    .content{
+        height: 100%;
+        margin: 0;
+        background: #261c33;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+    
+}

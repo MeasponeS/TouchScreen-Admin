@@ -1,0 +1,12 @@
+#app {
+    height: 100%;
+    margin: 0;
+    font-size: 16px;
+    .content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+        overflow: hidden;
+    }
+}

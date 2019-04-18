@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #app{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: deepskyblue;
+            flex-direction: column;
+        }
+        .btn{
+            width: 70px;
+            height: 35px;
+            border: 1px solid deepskyblue;
+            border-radius: 3px;
+            background: #fff;
+            color: deepskyblue;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        2019.04.17
+        <button class="btn" onclick="jump()">跳转</button>
+    </div>
+</body>
+</html>
+<script>
+    function jump() {
+        alert(1111)
+        window.location.href = './zhuye.html'
+    }
+</script>

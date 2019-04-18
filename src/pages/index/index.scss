@@ -1,0 +1,19 @@
+:root {
+    --bg: #051626;
+}
+#app {
+    font-size: 16px;
+    //.header {
+    //    position: absolute;
+    //    top: 0;
+    //}
+    margin: 0;
+    height: 100%;
+    
+    .content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:  var(--bg);
+    }
+}
