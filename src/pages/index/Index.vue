@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <Head class="header" activeUrl="index" ></Head>
-        <div class="main-body content">
+        <div class=" content">
             <css-doodle id="doodle" @click="update">
                 :doodle {
                 @grid: 8x1 / 50vmin;

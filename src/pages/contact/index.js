@@ -6,7 +6,7 @@ import './index.scss'
 import '../common.js'
 import '../components.js'
 import '../../utils/setHtmlFontSize.js'
-
+import './animate'
 
 new Vue({
     render: h => h(App)

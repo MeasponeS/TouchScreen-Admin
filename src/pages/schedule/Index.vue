@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <Head class="header" activeUrl="schedule" ></Head>
-        <div class="main-body content">
+        <div class="content">
             <css-doodle>
                 :doodle {
                 @grid: 25x1 / 18vmin;
