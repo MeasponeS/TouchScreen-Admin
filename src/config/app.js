@@ -25,9 +25,9 @@ export default {
     nav:{
         index:'Home',
         blog:'Blog',
-        register:'Register',
+        register:'Projects',
         schedule:'Schedule',
-        perfect:'Perfect',
+        perfect:'Nest',
         contact:'Contact'
     },
 }
