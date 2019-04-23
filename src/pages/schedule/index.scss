@@ -1,3 +1,4 @@
+
 #app {
     height: 100%;
     margin: 0;
@@ -49,6 +50,7 @@
             h3{
                 margin-bottom: 30px;
                 font-weight: normal;
+                font-family:'VisbyRoundCF-Bold';
             }
             input{
                 margin-top: 10px;
@@ -57,7 +59,41 @@
                 border-bottom: 4px solid #FFF;
                 text-align: center;
                 color: #fff;
-                outline: none
+                outline: none;
+                font-family:'VisbyRoundCF-Bold';
+            }
+        }
+        .todoBox{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 40px;
+            right: 70px;
+            h3{
+                font-family:'ACMEExplosive';
+                font-size: 28px;
+                letter-spacing: 5px;
+                margin:  16px 0;
+                color: #fff;
+            }
+            .checkGroup{
+                max-height: 500px;
+                overflow: auto;
+                display: flex;
+                flex-direction: column;
+            }
+            .el-checkbox{
+                margin-left: 0;
+                color: #fff;
+                margin-bottom: 8px;
+                span{
+                    font-size: 16px;
+                    font-family:'VisbyRoundCF-Bold';
+                }
+            }
+            .el-checkbox__inner{
+                background-color: transparent;
+                border: 1px solid #FFF;
             }
         }
         
