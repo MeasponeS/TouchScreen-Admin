@@ -1,72 +1,7 @@
 <template>
     <div id="app">
         <Head class="header" activeUrl="contact" ></Head>
-        <!--<div class="main-body content">-->
-            <!--<css-doodle>-->
-                <!--:doodle {-->
-                <!--@grid: 45x1 / 40vmin;-->
-                <!--position: relative;-->
-                <!--z-index: 1;-->
-                <!--}-->
-                <!--:container {-->
-                <!--transform: translate(50%, 33vmin)-->
-                <!--}-->
-                <!--:after, :before {-->
-                <!--content: '';-->
-                <!--@place-cell: center;-->
-                <!--@size: 100%;-->
-                <!--background: radial-gradient(-->
-                <!--@p(#FFFDE1, #FB3569) @r(70%),-->
-                <!--transparent 0-->
-                <!--)-->
-                <!--@pn(30% 50%, 70% 50%, 50% 60%) /-->
-                <!--@r(.1vmin, 5vmin) @lr()-->
-                <!--no-repeat;-->
-                <!--}-->
 
-                <!--@place-cell: centerr;-->
-                <!--@size: 100%;-->
-
-                <!--will-change: transform;-->
-                <!--animation: r 4s linear infinite;-->
-                <!--animation-delay: calc(-4s / @size() * @i());-->
-
-                <!--&#45;&#45;translate: translateY(calc(-66vmin / @size() * @i()));-->
-                <!--@keyframes r {-->
-                <!--from { transform: var(&#45;&#45;translate) rotate(0) }-->
-                <!--to { transform: var(&#45;&#45;translate) rotateZ(-1turn) }-->
-                <!--}-->
-            <!--</css-doodle>-->
-
-            <!--<css-doodle>-->
-                <!--:doodle {-->
-                <!--@grid: 1x3 / 100vmax;-->
-                <!--position: absolute;-->
-                <!--top: 0; left: 0;-->
-                <!--z-index: 0;-->
-                <!--}-->
-
-                <!--@size: 100% 150%;-->
-                <!--position: absolute;-->
-
-                <!--background: @m(100, (-->
-                <!--linear-gradient(transparent, @p(-->
-                <!--#FFFDE1@repeat(2, @p([0-9a-f])),-->
-                <!--#FB3569@repeat(2, @p([0-9a-f]))-->
-                <!--))-->
-                <!--@r(0%, 100%) @r(0%, 100%) /-->
-                <!--@r(1px) @r(23vmin)-->
-                <!--no-repeat-->
-                <!--));-->
-
-                <!--will-change: transform;-->
-                <!--animation: f 20s linear calc(-20s / @size() * @i()) infinite;-->
-                <!--@keyframes f {-->
-                <!--from { transform: translateY(-100%) }-->
-                <!--to { transform: translateY(100%) }-->
-                <!--}-->
-            <!--</css-doodle>-->
-        <!--</div>-->
         <div class="content">
             To to continue...
         </div>
@@ -84,16 +19,7 @@
             }
         },
         methods: {
-            handleScroll(){
-                let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-                let oneSize = 801/1980;
 
-                if(scrollTop >= document.body.clientWidth * oneSize - 100){
-                    this.type = 1
-                } else {
-                    this.type = 2
-                }
-            },
         },
         mounted() {
             window.addEventListener('scroll',this.handleScroll)

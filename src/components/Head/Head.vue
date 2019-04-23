@@ -1,6 +1,6 @@
 <template>
     <div class="head-warp">
-        <div class="head">
+        <div class="head ">
             <div class="container" >
                 <img class="logo" src="./img/logo.jpg" alt="">
                 <div class="company">
