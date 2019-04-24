@@ -18,6 +18,7 @@
 
             </div>
         </div>
+        <audio autoplay loop src="http://www.ytmp3.cn/down/47154.mp3"></audio>
         <!--<Footer></Footer>-->
     </div>
 </template>

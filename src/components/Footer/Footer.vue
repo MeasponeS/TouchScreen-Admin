@@ -2,7 +2,7 @@
     <div class="footer">
         <div class="container">
             <div>
-                <span>Copyright © 2019 Littleduoduo.cn. All Rights Reserved. 京ICP备19015704-1 </span>
+                <span>Copyright © 2019 Littleduoduo.cn.京ICP备19015704-1 </span>
             </div>
         </div>
     </div>
