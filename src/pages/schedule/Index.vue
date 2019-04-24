@@ -33,20 +33,6 @@
                 todoMatter:""
             }
         },
-        watch:{
-            'todoMatter' :function (val) {
-                let reg = /[\u4e00-\u9fa5]/g;
-                if(reg.test(val)){
-                    this.$alert('建议不用使用中文哦~', {
-                        confirmButtonText: '我知道辣',
-                        showClose:false,
-                        callback: action => {
-                            this.todoMatter = ''
-                        }
-                    });
-                }
-            }
-        },
         methods: {
             addTodo(e){
                 // 按下enter添加列表
