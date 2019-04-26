@@ -32,7 +32,6 @@
                 animation-delay: -@r(8s);
                 z-index: 0;
                 }
-
                 @keyframes cycle {
                 to { transform: rotate(1turn); }
                 }
