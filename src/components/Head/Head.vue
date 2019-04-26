@@ -34,7 +34,6 @@
             }
         },
         methods: {
-
         },
         mounted(){
             console.log(this.nav);
