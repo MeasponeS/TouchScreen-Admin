@@ -5,7 +5,6 @@ try {
     entries = glob('src/pages/*/index.js', {sync: true})
 } catch (err) {
     entries = []
-    console.log('读取目录出错！')
     throw err
 }
 
