@@ -3,7 +3,7 @@
         <Head class="header" activeUrl="contact" ></Head>
 
         <div class="content">
-            To to continue...
+            To be continued...
         </div>
         <Footer></Footer>
     </div>
