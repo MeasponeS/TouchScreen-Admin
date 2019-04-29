@@ -7,7 +7,6 @@
     }
 
     function e(n){
-
         return document.getElementsByTagName(n)
 
     }

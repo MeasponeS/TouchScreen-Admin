@@ -7,18 +7,19 @@
             </div>
 
             <div class="focus">
-                <h3>Hey,what's your focus today?</h3>
+                <h3>Hey,what's your main focus for today?</h3>
                 <input type="text" v-model="todoMatter" @keyup="addTodo($event)">
             </div>
             <div class="todoBox" v-if="todoList.length > 0">
                 <h3>TodoList</h3>
                 <div class="checkGroup">
-                    <Checkbox v-for="item in todoList">{{item}}</Checkbox>
+                    <Checkbox v-for="item in todoList">{{item}}
+                    </Checkbox>
                 </div>
 
             </div>
         </div>
-        <audio autoplay loop src="http://www.ytmp3.cn/down/47154.mp3"></audio>
+        <!--<audio autoplay loop src="http://www.ytmp3.cn/down/47154.mp3"></audio>-->
         <!--<Footer></Footer>-->
     </div>
 </template>
