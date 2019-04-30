@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <Head class="header" activeUrl="register" ></Head>
-        <div class="main-body content">
+        <div class="main-body content" @click="goEnglish">
             <css-doodle>
                 --color: @p(#51eaea, #fffde1, #ff9d76, #FB3569);
                 :doodle {
@@ -62,7 +62,9 @@
             }
         },
         methods: {
-
+            goEnglish(){
+                window.location.href = './startLearnEnglish.html'
+            },
         },
         mounted() {
             window.addEventListener('scroll',this.handleScroll)
