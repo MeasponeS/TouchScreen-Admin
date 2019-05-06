@@ -1,14 +1,72 @@
+@font-face {
+    font-family: fontOne;
+    src: url('../../assets/fonts/HELVETI1.TTF');
+}
+@font-face {
+    font-family: 'iconfont';  /* project id 1175467 */
+    src: url('//at.alicdn.com/t/font_1175467_rulrk5ao5zp.eot');
+    src: url('//at.alicdn.com/t/font_1175467_rulrk5ao5zp.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1175467_rulrk5ao5zp.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1175467_rulrk5ao5zp.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1175467_rulrk5ao5zp.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1175467_rulrk5ao5zp.svg#iconfont') format('svg');
+}
+.wx{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .left{
+        width: 30px;
+        height: 30px;
+    }
+    .right{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 150px;
+            height: 150px;
+        }
+        
+    }
+}
+.wb{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+    span{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        color: deepskyblue;
+        margin-left: 15px;
+    }
+    img{
+        width: 30px;
+        height: 30px;
+    }
+    a{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-weight: normal;
+        font-size: 18px;
+        color: deepskyblue;
+        margin-left: 25px;
+        &:hover{
+            color: deepskyblue;
+        }
+    }
+}
 #app {
     font-size: 16px;
-    //height: 100vh;
-    //overflow: hidden;
-    //background: #261c33;
-    //margin: 0;
     .content {
         min-height: calc(100vh - 160px);
         background-color: #FFF;
-        //background-color: #F99;
-        //background: linear-gradient(to bottom right, #F66, #FFF);
         overflow: hidden;
         font-size: 60px;
         text-shadow:#FF0000 0 0 10px;
@@ -16,7 +74,27 @@
         font-style: italic;
         display: flex;
         align-items: center;
-        justify-content: center
+        position: relative;
+        justify-content: center;
+        .littleBox{
+            z-index: 300;
+            position: absolute;
+            right: 80px;
+            bottom: 20px;
+            .el-button{
+                font-family: fontOne;
+                font-size: 30px;
+                font-style: normal;
+                text-shadow:#FF0000 0 0 10px;
+                color:white;
+                border: none;
+                &:hover{
+                    background: #FFF;
+                }
+            }
+            
+            
+        }
     }
     
 
