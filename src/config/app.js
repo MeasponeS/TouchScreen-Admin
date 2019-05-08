@@ -27,7 +27,7 @@ export default {
         blog:'Blog',
         projects:'Projects',
         schedule:'Schedule',
-        perfect:'Nest',
+        nest:'Nest',
         contact:'Contact'
     },
 }

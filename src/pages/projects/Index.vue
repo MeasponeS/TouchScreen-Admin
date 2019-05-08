@@ -63,7 +63,7 @@
         },
         methods: {
             goEnglish(){
-                window.location.href = './startLearnEnglish.html'
+                //window.location.href = './startLearnEnglish.html'
             },
         },
         mounted() {

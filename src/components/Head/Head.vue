@@ -9,7 +9,7 @@
                 </div>
                 <ul class="nav">
                     <li v-for="(title,url) in nav">
-                        <a :class="{active:activeUrl == url}" :href="'./'+ url +'.html'">{{ title }}</a>
+                        <a :class="{active:activeUrl == url}" :href="url == 'blog'?'./'+ url:'./'+url +'.html'">{{ title }}</a>
                     </li>
                 </ul>
 
