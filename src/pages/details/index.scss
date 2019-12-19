@@ -1,0 +1,19 @@
+#app {
+    height: 100%;
+    font-size: 16px;
+    margin: 0;
+    overflow: hidden;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .content{
+        width: 100%;
+        min-height: calc(100vh - 190px);
+        overflow: hidden;
+        background: #fff;
+        margin: 15px 0;
+        display: flex;
+    }
+}

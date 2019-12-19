@@ -1,58 +1,55 @@
 <template>
     <div id="app">
         <Head class="header" activeUrl="index" ></Head>
-        <div class=" content">
-            <css-doodle id="doodle" @click="update">
-                :doodle {
-                @grid: 8x1 / 50vmin;
-                }
-
-                @size: calc(100% - @i() * 3%);
-                @place-cell: center;
-                @shape: heart;
-                overflow: hidden;
-
-                :after {
-                content: '';
-                @size: calc(100% - 5px);
-                @shape: heart;
-                background: var(--bg);
-                z-index: 1;
-                }
-
-                :before {
-                content: '';
-                position: absolute;
-                @size: 200%;
-                background: conic-gradient(
-                @pd(#78E7D4, #E3383F, #EFF4DD, #F2A341) @p(10%, 40%),
-                transparent 0
-                );
-                animation: cycle @r(3s, 5s, .1) linear infinite;
-                animation-delay: -@r(8s);
-                z-index: 0;
-                }
-                @keyframes cycle {
-                to { transform: rotate(1turn); }
-                }
-            </css-doodle>
-            <audio autoplay loop src="http://www.ytmp3.cn/down/46144.mp3"></audio>
+        <div class="main-body content">
+            <ul class="sideNav">
+               <li
+                   v-for="item in list "
+                   :key="item.key"
+                   @click="changeSide(item.key)"
+                   :class="item.key === activeTab ? 'activeTab' : ''"
+               >
+                   {{item.name}}
+               </li>
+            </ul>
+            <div class="main-container">
+                <BannerSetting v-if="activeTab === 'banner'"/>
+                <IntroductionSetting v-if="activeTab === 'introduction' && showSynopses" @items="items" />
+                <SynopsesItems v-if="showItems" @back="changeSide" :id="pId" />
+            </div>
         </div>
-        <Footer></Footer>
+        <Footer />
     </div>
 </template>
 
 <script>
+    import BannerSetting from "./components/BannerSetting";
+    import IntroductionSetting from "./components/IntroductionSetting";
+    import SynopsesItems from "./components/SynopsesItems";
     export default {
         name: 'app',
         data: function () {
             return {
-
+            	list: [
+                    {key: 'banner', name: '轮播图设置'},
+                    {key: 'introduction', name: '公司简介设置'},
+                ],
+                activeTab: 'banner',
+				showItems: false,
+                showSynopses: true,
+				pId: ''
             }
         },
         methods: {
-            update(){
-                doodle.update();
+            changeSide(key){
+                this.activeTab = key;
+				this.showSynopses = true;
+				this.showItems = false;
+            },
+			items (id) {
+            	this.showSynopses = false;
+            	this.showItems = true;
+            	this.pId = id;
             }
         },
         mounted() {
@@ -61,7 +58,7 @@
         beforeDestroy: function () {
 
         },
-        components: {}
+        components: {BannerSetting, IntroductionSetting,SynopsesItems}
     }
 </script>
 

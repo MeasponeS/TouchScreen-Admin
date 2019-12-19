@@ -34,7 +34,7 @@ export function clone(obj) {
 }
 
 /**
- * 根据数组对象里面的key排序
+ * 根据数组对象里面的key序号
  * @param key
  * @param desc   true 倒序
  * @returns {function(*, *): number}

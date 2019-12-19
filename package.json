@@ -1,5 +1,5 @@
 {
-  "name": "JKCYXTPC",
+  "name": "TOUCHSCREEN",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,9 +9,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "css-doodle": "^0.6.2",
-    "element-ui": "^2.4.11",
+    "element-ui": "^2.13.0",
     "good-storage": "^1.1.0",
     "js-cookie": "^2.2.0",
+    "js-md5": "^0.7.3",
     "normalize.css": "^8.0.0",
     "vue": "^2.5.17",
     "vue-video-player": "^5.0.2"

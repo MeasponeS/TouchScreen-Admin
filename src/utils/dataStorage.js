@@ -2,6 +2,7 @@ import Storage from 'good-storage'
 import Cookies from 'js-cookie'
 import Config from '../config/app.js'
 import {initUrlParams} from './app.js'
+import {Base64} from "./beSecret";
 
 /**
  *
@@ -109,4 +110,10 @@ export function getMsgCount() {
 
 export function isLogin() {
     return getToken() && getUserInfo()
+}
+
+export function searchJson(data) {
+    console.log(data,'----------data------------');
+    let params = encodeURIComponent(Base64.encode(JSON.stringify(data)));
+    return params
 }

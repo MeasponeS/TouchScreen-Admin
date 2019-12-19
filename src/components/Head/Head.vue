@@ -2,10 +2,12 @@
     <div class="head-warp">
         <div class="head ">
             <div class="container" >
-                <img class="logo" src="./img/logo.jpg" alt="">
-                <div class="company">
-                    <p>Welcome</p>
-                    <span>MeasponeS</span>
+                <div class="left">
+                    <img class="logo" src="./img/logo.jpg" alt="">
+                    <div class="company">
+                        <p>轻松研学趣青松</p>
+                        <span>安徽省青松集团</span>
+                    </div>
                 </div>
                 <ul class="nav">
                     <li v-for="(title,url) in nav">
@@ -58,10 +60,16 @@
         background-color: #fff;
         box-shadow:-2px 3px 5px 0px rgba(174,174,174,0.14);
         .container {
+            width: 100%;
             display: flex;
             height: 100%;
+            justify-content: space-between;
             align-items: center;
-
+            .left{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
             .logo {
                 /*width: 41px;*/
                 height: 70px;
@@ -69,8 +77,7 @@
 
             .company {
                 display: inline-block;
-                min-width: 188px;
-                margin-left: 10px;
+                width: 250px;
 
                 p {
                     font-size: 16px;
@@ -84,7 +91,7 @@
             }
 
             .nav {
-                flex: 1;
+                width: 1000px;
                 // padding-left: 90px;
                 list-style-type: none;
                 display: flex;
@@ -92,32 +99,15 @@
                 align-items: center;
                 li {
                     float: left;
-                    margin-right: 46px;
                     position: relative;
 
                     a {
-                        font-size: 18px;
-
+                        font-size: 16px;
+                        padding-bottom: 10px;
                         &:hover, &.active {
                             color: $--color-primary;
                             border-bottom: 2px solid $--color-primary;
                         }
-                    }
-
-                    .msg-count {
-                        font-size: 12px;
-                        display: flex;
-                        position: absolute;
-                        top: -12px;
-                        right: -20px;
-                        align-items: center;
-                        justify-content: center;
-                        width: 20px;
-                        height: 20px;
-                        font-weight: normal;
-                        border-radius: 50%;
-                        background: #FF5555;
-                        color: #fff;
                     }
                 }
             }

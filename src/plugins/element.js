@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import "../assets/css/var.scss";
 import {
-    // Pagination,
+    Pagination,
     Dialog,
     // Autocomplete,
     // Dropdown,
@@ -16,17 +16,17 @@ import {
     // Radio,
     // RadioGroup,
     // RadioButton,
-    Checkbox,
-    CheckboxButton,
-    CheckboxGroup,
-    // Switch,
+    // Checkbox,
+    // CheckboxButton,
+    // CheckboxGroup,
+    Switch,
     Select,
     Option,
     OptionGroup,
     Button,
     // ButtonGroup,
-    // Table,
-    // TableColumn,
+    Table,
+    TableColumn,
     DatePicker,
     // TimeSelect,
     // TimePicker,
@@ -45,7 +45,7 @@ import {
     Icon,
     // Row,
     // Col,
-    // Upload,
+    Upload,
     Progress,
     // Badge,
     // Card,
@@ -72,7 +72,7 @@ import {
 
 
 
-// Vue.use(Pagination);
+Vue.use(Pagination);
 Vue.use(Dialog);
 // Vue.use(Autocomplete);
 // Vue.use(Dropdown);
@@ -90,14 +90,14 @@ Vue.use(Input);
 // Vue.use(Checkbox);
 // Vue.use(CheckboxButton);
 // Vue.use(CheckboxGroup);
-// Vue.use(Switch);
+Vue.use(Switch);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(OptionGroup);
 Vue.use(Button);
 // Vue.use(ButtonGroup);
-// Vue.use(Table);
-// Vue.use(TableColumn);
+Vue.use(Table);
+Vue.use(TableColumn);
 Vue.use(DatePicker);
 // Vue.use(TimeSelect);
 // Vue.use(TimePicker);
@@ -113,10 +113,10 @@ Vue.use(FormItem);
 // Vue.use(Tree);
 // Vue.use(Alert);
 // Vue.use(Slider);
-// Vue.use(Icon);
+Vue.use(Icon);
 // Vue.use(Row);
 // Vue.use(Col);
-// Vue.use(Upload);
+Vue.use(Upload);
 Vue.use(Progress);
 // Vue.use(Badge);
 // Vue.use(Card);

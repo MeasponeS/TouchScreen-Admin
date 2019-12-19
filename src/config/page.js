@@ -8,89 +8,25 @@ module.exports = {
         title:'首页',
         requiredParameters:{}
     },
-    index:{
-        title:'首页',
+    operation:{
+        title:'分类管理',
         requiredParameters:{}
     },
-    template:{
-        title:'Template',
+    venuesManage: {
+        title:'场馆管理',
         requiredParameters:{}
     },
-    exam:{
-        title:'考试',
+    feature: {
+        title:'场馆管理',
         requiredParameters:{}
     },
-    message:{
-        title:'消息',
+    userCenter: {
+        title:'个人中心',
         requiredParameters:{}
     },
-    topic:{
-        title:'习题集',
+    venuesModulesManage: {
+        title:'场馆模块管理',
         requiredParameters:{}
-    },
-    topicList:{
-        title:'习题集关卡列表',
-        requiredParameters:{
-            packageId:'课程包id',
-            courseId:'课程id',
-        }
-    },
-    topicDetails:{
-        title:'习题详情',
-        requiredParameters:{
-            packageId:'课程包id',
-            courseId:'课程id',
-            levelId:'关卡id'
-        },
-        optionalParameters:{
-            questionId:'如果传入此参数，会定位到当前习题'
-        }
-    },
-
-    topicError:{
-        title:'我的错题集',
-        requiredParameters:{}
-    },
-    register:{
-        title:'注册',
-        requiredParameters:{}
-    },
-    personal:{
-        title:'个人信息',
-        requiredParameters:{}
-    },
-    study:{
-        title:'学习',
-        requiredParameters:{}
-    },
-    courseDetails:{
-        title:'课程学习',
-        requiredParameters:{}
-    },
-    examDetails:{
-        title:'考试中',
-        requiredParameters:{}
-    },
-    examResults:{
-        title:'考试详情',
-        requiredParameters:{}
-    },
-    examHistory:{
-        title:'考试结果',
-        requiredParameters:{}
-    },
-    collection:{
-        title:'我的收藏',
-        requiredParameters:{}
-    },
-    changePassword:{
-        title:'修改密码',
-        requiredParameters:{}
-    },
-    forgotPassword:{
-        title:'忘记密码',
-    },
-    agreements:{
-        title:'用户协议'
     }
+    
 }
