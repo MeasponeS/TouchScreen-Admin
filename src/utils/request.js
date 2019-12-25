@@ -42,7 +42,8 @@ service.interceptors.response.use(
         const { response } = error;
         if(!response || !response.status) return;
         Message.error(response.data.message);
-        if(response.status === 401){
+        console.log(response.data,"______");
+        if(response.status === 401 || response.data['status_code'] === 500){
             removeToken();
             Message.info('登录状态失效,即将跳转至登录页');
             setTimeout(()=>{

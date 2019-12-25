@@ -87,6 +87,7 @@
                 />
             </div>
         </div>
+        <Footer />
     </div>
 </template>
 
@@ -151,7 +152,6 @@
 				this.$confirm('此操作将删除该模块, 是否继续?', '提示', {
 					confirmButtonText: '确定',
 					cancelButtonText: '取消',
-					type: 'warning',
 					showClose: false
 				}).then(() => {
 					deleteFeature({}, row.id).then(r=>{

@@ -103,7 +103,6 @@
 				this.$confirm('此操作将重置管理员密码, 是否继续?', '提示', {
 					confirmButtonText: '确定',
 					cancelButtonText: '取消',
-					type: 'warning',
 					showClose: false
 				}).then(() => {
 					resetPassword({}, row.id).then(r=>{
@@ -125,7 +124,6 @@
 				this.$confirm('此操作将删除该管理员, 是否继续?', '提示', {
 					confirmButtonText: '确定',
 					cancelButtonText: '取消',
-					type: 'warning',
 					showClose: false
 				}).then(() => {
 					deleteOperators({}, row.id).then(r=>{

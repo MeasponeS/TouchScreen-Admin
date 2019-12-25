@@ -30,12 +30,26 @@
                                 label="备注">
                         </el-table-column>
                         <el-table-column
+                                prop="is_active"
+                                align="center"
+                                label="是否开启">
+                            <template slot-scope="scope">
+                                <el-switch
+                                        :value="scope.row['is_active']"
+                                        @change="switchChange(scope.row)"
+                                        active-color="deepskyblue"
+                                        inactive-color="#e9e9e9">
+                                </el-switch>
+                            </template>
+                        </el-table-column>
+                        <el-table-column
                                 label="操作"
                                 align="center"
-                                width="300">
+                                width="400">
                             <template slot-scope="scope">
                                 <el-button @click="venues(scope.row)" type="text" size="small">场馆管理</el-button>
                                 <el-button @click="edit(scope.row)" type="text" size="small">编辑</el-button>
+                                <el-button @click="sort(scope.row)" type="text" size="small">排序</el-button>
                                 <el-button @click="deleteRow(scope.row)" class="delete-btn" size="small">删除</el-button>
                             </template>
                         </el-table-column>
@@ -55,37 +69,56 @@
             @refresh="reload"
             :row="row"
         />
+        <Sort
+                :visible="sortVisible"
+                @close="closeSortDialog"
+                :row="row"
+                @refresh="reload"
+                :api="api"
+        />
+        <Footer />
     </div>
 </template>
 
 <script>
-    import {cateList,deleteCate} from "../../api/venuesManage/exhibitionsCates";
+    import {cateList,deleteCate,disableCate,enableCate,sortCate} from "../../api/venuesManage/exhibitionsCates";
     import OperateCate from "./components/OperateCate";
     import Pagination from "../../components/Pagination/Pagination";
+	import Sort from "../index/components/Modal/Sort";
 	export default {
 		data() {
 			return {
 				cateList: cateList,
-				tableData: [
-					{
-						name: '一级分类',
-                        desc: 'xxx'
-					},
-					{
-						name: '二级分类',
-						desc: 'xxx'
-					},
-				],
+				tableData: [],
 				operateCateVisible: false,
 				mode: '新建',
 				row:{},
-				refresh: true
+                api: sortCate,
+				refresh: true,
+				sortVisible: false
 			}
 		},
 		mounted() {
 		},
 		computed: {},
 		methods: {
+			sort (row) {
+				this.row = row;
+				this.sortVisible = true
+			},
+			switchChange (e) {
+				let api = e['is_active'] ? disableCate : enableCate;
+				api({},e.id).then(r=>{
+					this.$message({
+						type: 'success',
+						message: r.message,center: true
+					});
+					this.reload()
+				}).catch(_=>{})
+			},
+			closeSortDialog () {
+				this.sortVisible = false
+			},
 			reload() {
 			    this.refresh = !this.refresh
             },
@@ -112,7 +145,6 @@
 				this.$confirm('此操作将删除该分类, 是否继续?', '提示', {
 					confirmButtonText: '确定',
 					cancelButtonText: '取消',
-					type: 'warning',
 					showClose: false
 				}).then(() => {
 					deleteCate({}, row.id).then(r=>{
@@ -131,7 +163,7 @@
 				});
 			}
         },
-		components: {OperateCate,Pagination}
+		components: {OperateCate,Pagination,Sort}
 	}
 </script>
 

@@ -10,7 +10,7 @@
         <ul class="operateBanner">
             <li v-if="mode === '新建'">
                 <span>轮播图片：</span>
-                <Upload ref="upload" :img="row['image_url']" />
+                <Upload ref="upload" :img1="row['image_url']" />
             </li>
             <li  v-if="mode === '新建'">
                 <span>图片简介：</span>

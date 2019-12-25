@@ -5,18 +5,21 @@
             :show-file-list="false"
             :on-success="handleAvatarSuccess"
             :before-upload="beforeAvatarUpload">
-        <img v-if="imageUrl || img " :src="imageUrl || img" class="avatar">
+        <img v-if="imageUrl || img1 " :src="imageUrl || img1" class="avatar">
         <i v-else class=" avatar-uploader-icon iconfont">&#xe829;</i>
     </el-upload>
 </template>
 
 <script>
 	export default {
-		props: ['img'],
+		props: ['img1'],
 		data() {
 			return {
 				imageUrl: ''
 			};
+		},
+        mounted() {
+		    this.img = this.img1
 		},
 		methods: {
 			clearImg() {
@@ -29,15 +32,11 @@
 			},
 			beforeAvatarUpload(file) {
 				const isJPG = file.type === 'image/jpeg' || file.type === 'image/png';
-				const isLt2M = file.size / 1024 / 1024 < 2;
 
 				if (!isJPG) {
 					this.$message.error({message:'上传头像图片只能是 JPG 或 PNG 格式!',center: true});
 				}
-				if (!isLt2M) {
-					this.$message.error({message: '上传头像图片大小不能超过 2MB!',center: true});
-				}
-				return isJPG && isLt2M;
+				return isJPG;
 			}
 		}
 	}

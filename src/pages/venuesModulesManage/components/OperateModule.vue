@@ -13,8 +13,12 @@
                     <el-input placeholder="请输入名称" v-model="name" />
                 </li>
                 <li>
+                    <span>英文名称：</span>
+                    <el-input placeholder="请输入英文名称" v-model="en_name"  />
+                </li>
+                <li>
                     <span>描述：</span>
-                    <el-input placeholder="请输入介绍" v-model="intro" />
+                    <el-input placeholder="请输入介绍" type="textarea" v-model="brief_intro" :rows="4" />
                 </li>
                 <li class="span">
                     <span>图片</span>
@@ -24,11 +28,12 @@
                             :on-preview="handlePictureCardPreview"
                             :on-remove="handleRemove"
                             :file-list="list"
+                            :before-upload="beforeAvatarUpload"
                             :on-success="saveFileList"
                             list-type="picture-card">
                         <i class="iconfont">&#xe829;</i>
                     </el-upload>
-                    <el-dialog :visible.sync="dialogVisible">
+                    <el-dialog :visible.sync="dialogVisible" :modal="false">
                         <img width="100%" :src="dialogImageUrl" alt="">
                     </el-dialog>
                 </li>
@@ -46,6 +51,7 @@
                 :image="venueImg"
                 @close="closePointDialog"
                 @save="savePoint"
+                :position="position"
             />
     </el-dialog>
 </template>
@@ -60,7 +66,8 @@
         data(){
 		    return {
 				name: '',
-				intro: '',
+                en_name:'',
+				brief_intro: '',
 				pVisible: false,
                 position: '',
                 text : '选择',
@@ -72,9 +79,32 @@
         },
         mounted() {
 		},
+        watch: {
+		    position (val) {
+		    	if (val.length) {
+		    		this.text = '已选择,重新选择'
+                } else {
+		    		this.text = '选择'
+                }
+            }
+        },
 		methods: {
 			handleRemove(file, fileList) {
-				this.images = this.images.filter(item=>item !== file.response.data.url);
+				this.images = this.images.filter(item=>{
+					if (file.response) {
+						return item !== file.response.data.url
+                    } else {
+						return item !== file.url
+                    }
+                });
+			},
+			beforeAvatarUpload(file) {
+				const isJPG = file.type === 'image/jpeg' || file.type === 'image/png';
+
+				if (!isJPG) {
+					this.$message.error({message:'上传头像图片只能是 JPG 或 PNG 格式!',center: true});
+				}
+				return isJPG;
 			},
 			handlePictureCardPreview(file) {
 				this.dialogImageUrl = file.url;
@@ -92,14 +122,25 @@
 			savePoint (position) {
 				this.closePointDialog();
 				this.position = position;
-				this.text = '已选择,重新选择'
 			},
 			open(){
-				this.fileList = this.row.images;
+				this.row.images.forEach(item=>{
+					this.list.push({
+                        name: item,
+                        url: item
+                    })
+                });
+				this.position = this.row.coordinate;
+				this.images = this.row.images;
 				this.name = this.row.name;
-				this.intro = this.row.intro;
+				this.en_name = this.row.en_name;
+				this.brief_intro = this.row.brief_intro;
             },
 			closeDialog() {
+				this.name = '';
+				this.brief_intro = '';
+				this.position = '';
+				this.en_name = '';
 				this.clearImg();
                 this.$emit('close')
             },
@@ -111,12 +152,15 @@
 
             },
 			submit(){
-				console.log(this.images);
 				if (!this.name) {
 					this.$message.error({message: '请填写模块名称',center: true});
 					return
                 }
-				if (!this.intro) {
+				if (!this.en_name) {
+					this.$message.error({message: '请填写模块英文名称',center: true});
+					return
+                }
+				if (!this.brief_intro) {
 					this.$message.error({message: '请填写模块描述',center: true});
 					return
 				}
@@ -130,12 +174,13 @@
                 }
 				let api = this.mode === '新建' ? createModule : editModule;
 				let id = this.mode === '新建' ? window.URlPARAMS.venueId : this.row.id;
-				this.handleData (api, id , this.name, this.intro, this.images, this.position);
+				this.handleData (api, id , this.name,this.en_name, this.brief_intro, this.images, this.position);
 			},
-			handleData (api, id, name,intro, img, coordinate) {
+			handleData (api, id, name,en_name,intro, img, coordinate) {
 				api({
 					name,
-					intro,
+					en_name,
+					brief_intro: intro,
 					coordinate,
 					images: img
                 }, id).then(r=>{
@@ -154,6 +199,7 @@
 
 <style scoped lang="scss">
     .operateModule{
+
         li{
             display: flex;
             justify-content: flex-start;
@@ -175,7 +221,6 @@
                     right: 0;
                     top: 0;
                 }
-
             }
             span{
                 width: 100px;

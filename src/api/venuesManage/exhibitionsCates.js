@@ -35,3 +35,30 @@ export function editCate(params,categoryId) {
 		data: params
 	})
 }
+
+// 开启
+export function enableCate(params,categoryid) {
+	return request({
+		url: `/api/backend/exhibition_halls/categories/${categoryid}/enable`,
+		method: 'put',
+		data: params
+	})
+}
+
+// 关闭
+export function disableCate(params,categoryid) {
+	return request({
+		url: `/api/backend/exhibition_halls/categories/${categoryid}/disable`,
+		method: 'put',
+		data: params
+	})
+}
+
+// 设置排序
+export function sortCate(params,categoryid) {
+	return request({
+		url: `/api/backend/exhibition_halls/categories/${categoryid}/set_sort`,
+		method: 'put',
+		data: params
+	})
+}

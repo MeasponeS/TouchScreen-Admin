@@ -22,7 +22,7 @@
             </li>
             <li>
                 <span>背景图片：</span>
-                <Upload ref="upload" :img="row['background_image']" />
+                <Upload ref="upload" :img1="row['background_image']" />
             </li>
 
             <li>

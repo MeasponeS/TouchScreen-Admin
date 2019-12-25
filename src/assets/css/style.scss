@@ -1,4 +1,22 @@
 @import "../../assets/css/var.scss";
+$--font-path: './elementUi/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+@font-face {
+    font-family: fontOne;
+    src: url('../../assets/fonts/HELVETI1.TTF');
+}
+
+@font-face {
+    font-family: fontTwo;
+    src: url('../../assets/fonts/方正卡通简体.ttf');
+}
+
+@font-face {
+    font-family: fontThree;
+    src: url('../../assets/fonts/print_font.TTF');
+}
 
 * {
     box-sizing: border-box;

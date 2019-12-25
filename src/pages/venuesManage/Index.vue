@@ -1,9 +1,9 @@
 <template>
     <div id="app">
         <Head class="header" active-url="operation"/>
-        <div class="main-body content">
+        <div class="main-body content"                                  >
             <div class="customBreadcrumb">
-                <el-breadcrumb separator-class="el-icon-arrow-right">
+                <el-breadcrumb >
                     <el-breadcrumb-item><a href="./operation.html">分类管理</a></el-breadcrumb-item>
                     <el-breadcrumb-item>场馆管理</el-breadcrumb-item>
                 </el-breadcrumb>
@@ -26,6 +26,13 @@
                         >
                         </el-table-column>
                         <el-table-column
+                                prop="en_title"
+                                label="英文名称"
+                                width="200"
+                                align="center"
+                        >
+                        </el-table-column>
+                        <el-table-column
                                 prop="slogan"
                                 label="标语"
                                 width="200"
@@ -36,6 +43,14 @@
                                 prop="desc"
                                 align="center"
                                 label="简介">
+                        </el-table-column>
+                        <el-table-column
+                                prop="icon"
+                                align="center"
+                                label="图标">
+                            <template slot-scope="scope">
+                                <img :src="scope.row['icon']" alt="">
+                            </template>
                         </el-table-column>
                         <el-table-column
                                 prop="planar_graph"
@@ -73,6 +88,7 @@
                 />
             </div>
         </div>
+        <Footer />
     </div>
 </template>
 
@@ -120,7 +136,6 @@
 				this.$confirm('此操作将删除该场馆, 是否继续?', '提示', {
 					confirmButtonText: '确定',
 					cancelButtonText: '取消',
-					type: 'warning',
 					showClose: false
 				}).then(() => {
 					deleteVenues({},row.id).then(r=>{

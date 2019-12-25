@@ -2,7 +2,7 @@
     <div class="footer">
         <div class="container">
             <div>
-                <span> 安徽省青松集团 </span>
+                <span>  Copyright © 2019 安徽京抖云数据科技有限公司 </span>
             </div>
         </div>
     </div>

@@ -13,12 +13,17 @@
                 <el-input placeholder="请输入标题" v-model="title" />
             </li>
             <li >
+                <span>标语：</span>
+                <el-input placeholder="请输入标语"  maxlength="30"
+                          show-word-limit v-model="slogan" />
+            </li>
+            <li >
                 <span>LOGO：</span>
-                <Upload ref="upload" :img="row['logo']" />
+                <Upload ref="upload" :img1="row['logo']" />
             </li>
             <li >
                 <span>简介：</span>
-                <el-input placeholder="请输入简介" v-model="introduction" />
+                <el-input  type="textarea" :rows="4" placeholder="请输入简介" v-model="introduction" />
             </li>
         </ul>
         <span slot="footer" class="dialog-footer">
@@ -38,6 +43,7 @@
 			return {
 				title: '',
 				introduction: '',
+				slogan:''
 			}
 		},
 		mounted() {
@@ -46,8 +52,9 @@
 		methods: {
 			open(){
 				this.title = this.row.title;
+				this.slogan = this.row.slogan;
 				this.introduction = this.row.introduction;
-			},
+ 			},
 			closeDialog() {
 				this.$emit('close');
 				this.clearImg();
@@ -61,6 +68,10 @@
 			submit(){
 				if (!this['title']) {
 					this.$message.error({message:'请填写标题',center: true});
+					return
+				}
+				if (!this['slogan']) {
+					this.$message.error({message:'请填写标语',center: true});
 					return
 				}
 				if (!this.$refs.upload.img) {
@@ -78,6 +89,7 @@
 			handleData(api,id) {
 				api({
 					title: this.title,
+                    slogan: this.slogan,
 					logo: this.$refs.upload.img,
 					introduction: this['introduction'],
 				},id).then(r=>{

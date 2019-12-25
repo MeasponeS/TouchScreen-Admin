@@ -3,7 +3,7 @@
         <Head class="header" active-url="operation"/>
         <div class="main-body content">
             <div class="customBreadcrumb">
-                <el-breadcrumb separator-class="el-icon-arrow-right">
+                <el-breadcrumb >
                     <el-breadcrumb-item><a href="./operation.html">分类管理</a></el-breadcrumb-item>
                     <el-breadcrumb-item><a :href="`./venuesManage.html?cateId=${cateId}`">场馆管理</a></el-breadcrumb-item>
                     <el-breadcrumb-item>模块管理</el-breadcrumb-item>
@@ -20,30 +20,30 @@
                             border
                             style="width: 100%">
                         <el-table-column
-                                prop="title"
+                                prop="name"
                                 label="名称"
                                 width="200"
                                 align="center"
                         >
                         </el-table-column>
                         <el-table-column
-                                prop="slogan"
-                                label="标语"
+                                prop="en_name"
+                                label="英文名称"
                                 width="200"
                                 align="center"
                         >
                         </el-table-column>
                         <el-table-column
-                                prop="desc"
+                                prop="brief_intro"
                                 align="center"
                                 label="简介">
                         </el-table-column>
                         <el-table-column
                                 prop="planar_graph"
                                 align="center"
-                                label="平面图">
+                                label="模块图片">
                             <template slot-scope="scope">
-                                <img :src="scope.row['planar_graph']" alt="">
+                                <img v-for="item in scope.row['images']" :src="item" alt="" style="margin-left: 10px">
                             </template>
                         </el-table-column>
                         <el-table-column
@@ -58,9 +58,9 @@
                     </el-table>
                     <Pagination
                         @valChange="valChange"
-                        :api="venueList"
+                        :api="modulesList"
                         :refresh="refresh"
-                        :id="cateId"
+                        :id="venueId"
                     />
                 </div>
 
@@ -74,12 +74,13 @@
                 />
             </div>
         </div>
+        <Footer />
     </div>
 </template>
 
 <script>
 	import OperateModule from "./components/OperateModule";
-	import {venuesList, deleteVenues} from "../../api/venuesManage/venues";
+	import {modulesList,deleteModule} from "../../api/venuesManage/modules";
 	import Pagination from "../../components/Pagination/Pagination";
     export default {
         name: 'app',
@@ -89,9 +90,10 @@
 				operateVenueVisible: false,
 				mode: '新建',
 				row:{},
-				venueList: venuesList,
+				modulesList: modulesList,
 				refresh: true,
 				cateId: '',
+				venueId:'',
 				venueImg: ''
             }
         },
@@ -119,10 +121,9 @@
 				this.$confirm('此操作将删除该模块, 是否继续?', '提示', {
 					confirmButtonText: '确定',
 					cancelButtonText: '取消',
-					type: 'warning',
 					showClose: false
 				}).then(() => {
-					deleteVenues({},row.id).then(r=>{
+					deleteModule({},row.id).then(r=>{
 						this.$message({
 							type: 'success',
 							message: '删除成功!',center: true

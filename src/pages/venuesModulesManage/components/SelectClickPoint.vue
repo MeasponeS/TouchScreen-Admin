@@ -2,11 +2,14 @@
     <el-dialog
         title="选择点击区域"
         :visible.sync="visible"
-        width="50%"
+        width="736px"
+        @open="open"
         :modal="false"
         :close-on-click-modal="false"
         :show-close="false">
-        <img :src="image" alt="" class="pointImg" @click="savePosition">
+        <div class="imgs">
+            <img :src="image" alt="" class="pointImg" @click="savePosition">
+        </div>
         <div class="points" v-if="left || top" :style="{'left': (left + 32 ) + 'px', 'top': (top + 76) + 'px'  }">
             <i class="iconfont">&#xe7ad;</i>
         </div>
@@ -20,7 +23,7 @@
 <script>
 	export default {
 		name: "SelectClickPoint",
-        props: ['visible', 'image'],
+        props: ['visible', 'image','position'],
         data (){
 		    return {
 		    	left: '',
@@ -28,6 +31,12 @@
             }
         },
         methods: {
+			open(){
+				if (this.position.length) {
+					this.left = this.position[0];
+					this.top = this.position[1]
+				}
+			},
 			savePosition(e) {
 				this.left = e.offsetX;
 				this.top = e.offsetY;
@@ -48,9 +57,8 @@
 
 <style scoped lang="scss">
     .pointImg{
-        width: 100%;
+        width: 656px;
         height: auto;
-        border: 1px solid red;
     }
     .el-dialog__body{
         position: relative;

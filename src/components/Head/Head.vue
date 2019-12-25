@@ -13,6 +13,9 @@
                     <li v-for="(title,url) in nav">
                         <a :class="{active:activeUrl == url}" :href="url == 'blog'?'./'+ url:'./'+url +'.html'">{{ title }}</a>
                     </li>
+                    <li class="logout">
+                        <el-button @click="logout">退出登录</el-button>
+                    </li>
                 </ul>
 
             </div>
@@ -22,7 +25,9 @@
 
 <script>
     import Config from '../../config/app.js'
-    export default {
+	import {logout} from "../../api/login";
+
+	export default {
         name: 'Head',
         props: {
             activeUrl: {
@@ -36,6 +41,26 @@
             }
         },
         methods: {
+			logout() {
+				this.$confirm('此操作将退出登录, 是否继续?', '提示', {
+					confirmButtonText: '确定',
+					cancelButtonText: '取消',
+					showClose: false
+				}).then(() => {
+					logout({}).then(r=>{
+						this.$message({
+							type: 'success',
+							message: '退出登录成功',
+                            center: true
+						});
+						setTimeout(()=>{
+							window.location.href = './login.html'
+                        },2000)
+					}).catch(_=>{})
+				}).catch(() => {
+
+				});
+            }
         },
         mounted(){
 
@@ -83,10 +108,12 @@
                     font-size: 16px;
                     color: deepskyblue;
                     margin: 0 0 6px 0;
+                    font-family: FontTwo;
                 }
 
                 span {
                     font-size: 20px;
+                    font-family: FontThree;
                 }
             }
 
@@ -95,7 +122,7 @@
                 // padding-left: 90px;
                 list-style-type: none;
                 display: flex;
-                justify-content: space-around;
+                justify-content: space-between;
                 align-items: center;
                 li {
                     float: left;
@@ -109,6 +136,13 @@
                             border-bottom: 2px solid $--color-primary;
                         }
                     }
+                }
+                .logout{
+                    width: 200px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-left: 1px solid #e9e9e9;
                 }
             }
         }

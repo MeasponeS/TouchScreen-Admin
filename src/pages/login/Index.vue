@@ -32,8 +32,8 @@ import md5 from 'js-md5'
 export default {
     data() {
           return {
-              account: '18056047515',
-              password: '123456',
+              account: '',
+              password: '',
               publicKey: ''
           }
     },

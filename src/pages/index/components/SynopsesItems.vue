@@ -19,6 +19,11 @@
                         label="标题">
                 </el-table-column>
                 <el-table-column
+                        prop="slogan"
+                        align="center"
+                        label="标语">
+                </el-table-column>
+                <el-table-column
                         prop="logo"
                         align="center"
                         label="LOGO">
@@ -106,7 +111,6 @@
 				this.$confirm('此操作将删除该主简介, 是否继续?', '提示', {
 					confirmButtonText: '确定',
 					cancelButtonText: '取消',
-					type: 'warning',
 					showClose: false
 				}).then(() => {
 					deleteSynopsesItem({}, row.id).then(r=>{

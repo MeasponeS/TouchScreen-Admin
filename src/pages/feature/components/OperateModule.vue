@@ -14,11 +14,11 @@
                 </li>
                 <li>
                     <span>文案：</span>
-                    <el-input type="textarea" placeholder="请输入文案" v-model="brief_intro" />
+                    <el-input type="textarea" :rows="4" placeholder="请输入文案" v-model="brief_intro" />
                 </li>
                 <li>
                     <span>图片：</span>
-                    <Upload ref="upload" :img="row['image']" />
+                    <Upload ref="upload" :img1="row['image']" />
                 </li>
                 <li>
                     <span>序号：</span>

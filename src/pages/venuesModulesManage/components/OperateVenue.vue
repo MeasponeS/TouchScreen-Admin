@@ -18,11 +18,11 @@
                 </li>
                 <li>
                     <span>简介：</span>
-                    <el-input type="textarea" placeholder="请输入简介" v-model="desc" />
+                    <el-input type="textarea" :rows="4" placeholder="请输入简介" v-model="desc" />
                 </li>
                 <li>
                     <span>平面图</span>
-                    <Upload ref="upload" :img="row['planar_graph']" />
+                    <Upload ref="upload" :img1="row['planar_graph']" />
                 </li>
             </ul>
             <span slot="footer" class="dialog-footer">
