@@ -1,7 +1,7 @@
 <template>
     <el-upload
             class="avatar-uploader"
-            action="http://qstour.klsfood.cn/api/common/image/upload"
+            action='http://qstour.kingdomcloud.cn/api/common/image/upload'
             :show-file-list="false"
             :on-success="handleAvatarSuccess"
             :before-upload="beforeAvatarUpload">
@@ -11,11 +11,12 @@
 </template>
 
 <script>
+    import Config from '../../config/app'
 	export default {
 		props: ['img1'],
 		data() {
 			return {
-				imageUrl: ''
+				imageUrl: '',
 			};
 		},
         mounted() {

@@ -24,7 +24,7 @@
                     <span>图片</span>
                     <el-upload
                             class="upload-demo"
-                            action="http://qstour.klsfood.cn/api/common/image/upload"
+                            action='http://qstour.kingdomcloud.cn/api/common/image/upload'
                             :on-preview="handlePictureCardPreview"
                             :on-remove="handleRemove"
                             :file-list="list"
@@ -60,6 +60,7 @@
     import Upload from "../../../components/Upload/Upload";
     import {createModule,editModule} from "../../../api/venuesManage/modules";
     import SelectClickPoint from "./SelectClickPoint";
+    import Config from '../../../config/app'
 	export default {
 		name: "OperateVenue",
         props: ['visible', 'mode', 'row','venueImg'],
